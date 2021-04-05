@@ -1,4 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { AppComponent } from 'src/app/app.component';
 
 import { AdvertsComponent } from './adverts.component';
 
@@ -8,7 +9,8 @@ describe('AdvertsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AdvertsComponent ]
+      declarations: [ AdvertsComponent ],
+      providers:[AppComponent]
     })
     .compileComponents();
   });
