@@ -14,7 +14,7 @@ export class MyAdsComponent implements OnInit {
   public adverts: any = [];
   constructor(public advertService: AdvertService, public api: ApiService, public app: AppComponent) { 
     let that = this;
-    this.advertService.getMyAdverts(this.app.user.id, (data: any)=>{
+    this.advertService.getMyAdverts(this.app.user._id, (data: any)=>{
       that.adverts = data;
     });
   }

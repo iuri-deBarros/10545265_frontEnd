@@ -32,7 +32,7 @@ export class AddAdvertsComponent implements OnInit {
       this.error = "All the fields are required to create an ad";
       return;
     }
-    this.advertService.createAd(this.data.title, this.data.description, this.app.user.id, this.data.image, (data:any)=>{
+    this.advertService.createAd(this.data.title, this.data.description, this.app.user._id, this.data.image, (data:any)=>{
       Swal.fire("Ad Created",
         "Your ad has been added successfully",
         "success"
