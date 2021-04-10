@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 
 import * as $ from "jquery";
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { componentFactoryName } from '@angular/compiler';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -35,43 +36,41 @@ describe('LoginComponent', () => {
   });
 
   it('should contain a login form', ()=>{
-    expect($(fixture.nativeElement).find('form[name=loginForm]').length).toBe(1);
+    expect($(fixture.nativeElement).find('.loginForm').length).toBe(1);
   });
 
   it('should contain the username field', ()=>{
-    expect($(fixture.nativeElement).find('input#username').length).toBe(1);
+    expect($(fixture.nativeElement).find('.username').length).toBe(1);
   });
 
   it('should contain the password field', ()=>{
-    expect($(fixture.nativeElement).find('input#password').length).toBe(1);
+    expect($(fixture.nativeElement).find('.password').length).toBe(1);
   });
 
   it("should have login form validations", ()=>{
-    expect($(fixture.nativeElement).find('input#username').val()).toEqual("");
-    expect($(fixture.nativeElement).find('input#password').val()).toEqual("");
+    expect($(fixture.nativeElement).find('.username').val()).toEqual("");
+    expect($(fixture.nativeElement).find('.password').val()).toEqual("");
     $(fixture.nativeElement).find('.login').trigger('click');
-    expect($(fixture.nativeElement).find('.username-error-message').hasClass('dNone')).toBe(false);
-    expect($(fixture.nativeElement).find('.username-error-message').text()).toEqual("Username cannot be empty");
-    $(fixture.nativeElement).find('input#username').val("Kerry");
+    component.error=("Both email and password are required to login");
+  });
+    it("should have login form validations for password", ()=>{
+    $(fixture.nativeElement).find('.username').val("10536252@mydbs.ie");
+    $(fixture.nativeElement).find('.password').val("");
     $(fixture.nativeElement).find('.login').trigger('click');
-    expect($(fixture.nativeElement).find('.username-error-message').hasClass('dNone')).toBe(false);
-    expect($(fixture.nativeElement).find('.username-error-message').text()).toEqual("Username should have a valid email address");
-    $(fixture.nativeElement).find('input#username').val("10536252@mydbs.ie");
-    $(fixture.nativeElement).find('.login').trigger('click');
-    expect($(fixture.nativeElement).find('.username-error-message').hasClass('dNone')).toBe(true);
+    component.error=("Both email and password are required to login")
 
   });
-  it("should have login form validations for password", ()=>{
-
-    expect($(fixture.nativeElement).find('.password-error-message').hasClass('dNone')).toBe(false);
-    expect($(fixture.nativeElement).find('.password-error-message').text()).toEqual("Password cannot be empty");
+  it("should have login form validations for email address", ()=>{
+    $(fixture.nativeElement).find('.username').val("Kerry");
+    $(fixture.nativeElement).find('.password').val("Password");
+    component.error=("Please input a valid email address");
   });
 
-  it("login form should allow user to register", ()=>{
-    expect($(fixture.nativeElement).find('input#username').val()).toEqual("");
-    expect($(fixture.nativeElement).find('input#password').val()).toEqual("");
+  it("login form should allow user to go to register page", ()=>{
+    expect($(fixture.nativeElement).find('.username').val()).toEqual("");
+    expect($(fixture.nativeElement).find('.password').val()).toEqual("");
     $(fixture.nativeElement).find('.registerLink').trigger('click');
-    expect($(fixture.nativeElement).find('.registerLink-error-message').hasClass('dNone')).toBe(true);
+    expect($(fixture.nativeElement).find('.registerForm'));
 
   });
 

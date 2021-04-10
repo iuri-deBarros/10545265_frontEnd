@@ -1,4 +1,6 @@
+import { componentFactoryName } from '@angular/compiler';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Button } from 'selenium-webdriver';
 import { HomeModule } from 'src/app/home-module';
 import { AdvertsComponent } from '../adverts/adverts.component';
 
@@ -24,6 +26,10 @@ describe('HomePageComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should contain app adverts', () => {
+    expect($(fixture.nativeElement).find('.adverts'));
   });
 
   

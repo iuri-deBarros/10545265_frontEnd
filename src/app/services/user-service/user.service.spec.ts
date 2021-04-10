@@ -13,4 +13,8 @@ describe('UserService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should be users', () => {
+    expect(service).toBeTruthy();
+  });
 });

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AdvertService } from 'src/app/services/advert-service/advert.service';
 import { ApiService } from 'src/app/services/api-service/api.service';
 
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import {faPlus} from "@fortawesome/free-solid-svg-icons";
 import { AppComponent } from 'src/app/app.component';
 
