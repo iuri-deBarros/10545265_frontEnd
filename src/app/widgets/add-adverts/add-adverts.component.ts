@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { faGrinTongueSquint } from '@fortawesome/free-solid-svg-icons';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+
 import { AppComponent } from 'src/app/app.component';
 import { AdvertService } from 'src/app/services/advert-service/advert.service';
 import Swal from 'sweetalert2';

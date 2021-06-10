@@ -1,12 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { AppComponent } from 'src/app/app.component';
-//import { APP_INITIALIZER, NgModule } from '@angular/core';
-import { AdvertsComponent } from './adverts.component';
 
-import { Router } from '@angular/router';
-import { AppRoutingModule } from 'src/app/app-routing.module';
-import { NgModule } from '@angular/core';
-import { NgModel } from '@angular/forms';
+import { AdvertsComponent } from './adverts.component';
 
 describe('AdvertsComponent', () => {
   let component: AdvertsComponent;
@@ -15,8 +10,7 @@ describe('AdvertsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ AdvertsComponent ],
-      providers:[AppComponent, NgModel],
-      imports: [ AppRoutingModule]
+      providers:[AppComponent]
     })
     .compileComponents();
   });
@@ -30,10 +24,4 @@ describe('AdvertsComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-  it("advert container exists", ()=>{
-    expect($(fixture.nativeElement).find('.advertContainer'));
- 
-  });
-
 });

@@ -26,12 +26,6 @@ export class AdvertService {
       callback(data);
     });
 
-    // deleteAd(title: string, description: string, author: string, featuredImage:string ,callback: any){
-    //   let date = new Date();
-    //   this.api.serverCall("DELETE", "/api/deleteAd", {title: title, description: description, featuredImage: featuredImage, author: author, lastUpdated: date, dateCreated: date }, (data: any)=>{
-    //     callback(data);
-    //   });
-
 
  }
 }
