@@ -9,9 +9,6 @@ import { NgModule } from '@angular/core';
 
 import { MyAdsComponent } from './my-ads.component';
 import { icon } from '@fortawesome/fontawesome-svg-core';
-import { AdvertService } from 'src/app/services/advert-service/advert.service';
-import { AddAdvertsComponent } from 'src/app/widgets/add-adverts/add-adverts.component';
-import { ApiService } from 'src/app/services/api-service/api.service';
 
 
 describe('MyAdsComponent', () => {
@@ -21,7 +18,7 @@ describe('MyAdsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ MyAdsComponent ],
-      providers:[AppComponent, NgModel, AddAdvertsComponent, ApiService],
+      providers:[AppComponent, NgModel],
       imports:[AppRoutingModule]
       
     })
@@ -34,7 +31,7 @@ describe('MyAdsComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });

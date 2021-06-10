@@ -6,7 +6,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AddAdvertsComponent } from './add-adverts.component';
 import { NgModel } from '@angular/forms';
 import { AppRoutingModule } from 'src/app/app-routing.module';
-import { AdvertService } from 'src/app/services/advert-service/advert.service';
 
 describe('AddAdvertsComponent', () => {
   let component: AddAdvertsComponent;
@@ -28,7 +27,7 @@ describe('AddAdvertsComponent', () => {
     fixture.detectChanges();
   });
 
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
 });
