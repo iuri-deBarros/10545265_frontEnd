@@ -1,10 +1,10 @@
-FROM node:13-alpine as build
+FROM node:12.7-alpine as build
 WORKDIR /app
-COPY package*.json /app/
-RUN npm install -g angular
+COPY package*.json ./
+
 RUN npm install
+
 COPY ./ /app/
 RUN npm run build
-FROM nginx:alpine
-RUN rm -rf /usr/share/nginx/html*
+FROM nginx:1.17.1-alpine
 COPY --from=build /app/dist/ca-frontend/ /usr/share/nginx/html/
