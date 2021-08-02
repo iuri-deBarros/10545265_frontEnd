@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-02-08
+  name: frontend-02-08-deployment
 spec:
   selector:
     matchLabels:
-      deployment-name: frontend-02-08
+      deployment-name: frontend-02-08-deployment
   replicas: 2
   template:
     metadata:
       labels:
-        deployment-name: frontend-02-08 
+        deployment-name: frontend-02-08-deployment 
     spec:
       containers:
         - name: frontend-container-02-08
@@ -24,7 +24,7 @@ kind: Service
 metadata:
   labels:
     service-label: 02-08-service-label-cluster-service
-  name: frontend-02-08-cluster-service
+  name: 02-08-frontend-cluster-service
 spec:
   type: ClusterIP
   ports:
@@ -39,7 +39,7 @@ kind: Service
 metadata:
   labels:
     service-label: 02-08-service-label-cluster-service 
-  name: frontend-02-08-service-loadbalancer
+  name: 02-08-frontend-loadbalancer
 spec:
   type: LoadBalancer
   ports:
@@ -47,4 +47,4 @@ spec:
     port: 80
     protocol: TCP
   selector:
-    deployment-name: frontend-02-08
+    deployment-name: frontend-02-08-deployment
