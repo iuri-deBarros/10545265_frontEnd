@@ -23,7 +23,7 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service-label: 31-07-cluster-service
+    service-label: frontend-31-07-cluster-service
   name: cluster-service-31-07
 spec:
   type: ClusterIP
