@@ -6,4 +6,4 @@ COPY ./ /app/
 RUN npm run build
 FROM nginx:1.17.1-alpine
 COPY --from=build /app/dist/ca-frontend/ /usr/share/nginx/html/
-RUN ng serve
+RUN npm start http://20.79.82.235
