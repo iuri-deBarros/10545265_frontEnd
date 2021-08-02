@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: application-frontend
+  name: frontend-02-08
 spec:
   selector:
     matchLabels:
-      deployment-name: application-frontend
+      deployment-name: frontend-02-08
   replicas: 2
   template:
     metadata:
       labels:
-        deployment-name: application-frontend 
+        deployment-name: frontend-02-08 
     spec:
       containers:
-        - name: application-frontend-container
-          image: iurib8it148.azurecr.io/buildingtesting:945d09a9bcf61f3b487ad91daf40e8cfea85a6fd
+        - name: frontend-container-02-08
+          image: iuri89/frontend-image-02-08:latest
           imagePullPolicy: Always
           ports:
           - containerPort: 80
@@ -23,28 +23,28 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    service-label: frontend-cluster-service
-  name: frontend-cluster-service
+    service-label: 02-08-service-label-cluster-service
+  name: frontend-02-08-cluster-service
 spec:
   type: ClusterIP
   ports:
-  - name: frontend-cluster-service-port
+  - name: ionic-cluster-service-port
     port: 80
     protocol: TCP
   selector:
-    deployment-name: application-frontend
+    deployment-name: ionic-frontend
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service-loadbalancer
   labels:
-    app: frontend-service-loadbalancer
+    service-label: 02-08-service-label-cluster-service 
+  name: frontend-02-08-service-loadbalancer
 spec:
   type: LoadBalancer
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  - name: load-balancer-service-port
+    port: 80
+    protocol: TCP
   selector:
-    app: application-frontend
+    deployment-name: frontend-02-08
