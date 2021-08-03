@@ -8,7 +8,7 @@ import * as $ from "jquery";
 export class ApiService {
   public apiUrl: string;
   constructor() { 
-    this.apiUrl = "http://20.79.82.235"
+    this.apiUrl = "http://20.52.203.66"
   }
 
   serverCall(method: string, endpoint: string, data:any, callback:any){
